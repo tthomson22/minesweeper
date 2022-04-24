@@ -1,4 +1,4 @@
-import { TILE_STATUSES, createBoard, markTile } from './minesweeper.js'
+import { TILE_STATUSES, createBoard, markTile, revealTile } from './minesweeper.js'
 
 const BOARD_SIZE = 5
 const NUMBER_OF_MINES = 3
@@ -14,6 +14,7 @@ board.forEach(row => {
     row.forEach(tile => {
         boardElement.append(tile.element)
         tile.element.addEventListener('click', () => {
+            revealTile(board, tile)
         })
         tile.element.addEventListener('contextmenu', evt => {
             evt.preventDefault()
