@@ -59,6 +59,14 @@ export function revealTile(board, tile){
     }
     tile.status = TILE_STATUSES.NUMBER
     const adjacentTiles = nearbyTiles(board, tile)
+    const mines = adjacentTiles.filter(tile => tile.mine)
+    if(mines.length === 0){
+        // makes all touching 0's open
+        // found the .bind trick looks so clean
+        adjacentTiles.forEach(revealTile.bind(null, board))
+    } else {
+        tile.element.textContent = mines.length
+    }
 }
 
 function getMinePositions(boardSize, numberOfMines) {
