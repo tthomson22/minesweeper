@@ -69,6 +69,14 @@ export function revealTile(board, tile){
     }
 }
 
+export function checkWin(board){
+    
+}
+
+export function checkLost(board){
+
+}
+
 function getMinePositions(boardSize, numberOfMines) {
     const positions = []
 
